@@ -33,7 +33,7 @@ jobs:
       - name: Install project & Build static
         run: |
           npm ci
-          npm build
+          npm run build
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
