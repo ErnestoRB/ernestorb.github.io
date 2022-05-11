@@ -32,8 +32,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install project & Build static
         run: |
-          npm ci,
-          npm build.
+          npm ci
+          npm build
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
