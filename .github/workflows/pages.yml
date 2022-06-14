@@ -36,7 +36,7 @@ jobs:
           npm run build
       - name: Create CName File
         if: success()
-        run: echo "ernestorb.com" >/build/CNAME
+        run: echo "ernestorb.com" >build/CNAME
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
