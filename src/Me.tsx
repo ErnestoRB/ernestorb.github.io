@@ -47,68 +47,70 @@ const Me = () => {
       </div>
       <div
         id="2"
-        className="relative h-screen w-full bg-gradient-to-bl from-blue-300 to-rose-400 "
+        className="relative min-h-screen w-full bg-gradient-to-bl from-blue-300 to-rose-400 "
       >
-        <div className="flex flex-wrap items-center justify-center px-8 gap-x-8 h-full w-full bg-opacity-10 bg-black">
+        <div className="flex flex-col flex-wrap px-8 gap-x-8 min-h-screen w-full bg-opacity-10 bg-black">
           <h2
-            className="absolute top-8 left-1/2 -translate-x-1/2 font-bold text-center text-white
-        decoration-black underline-offset-2 underline decoration-8 text-3xl"
+            className="w-full font-bold text-center text-white
+        decoration-black underline-offset-2 underline decoration-8 text-3xl pt-8"
           >
             Conocimientos
           </h2>
-          <Card>
-            <h2 className="font-bold block w-full">
-              Lenguajes de programación
-            </h2>
-            <ul className="block text-justify">
-              <li>
-                <img
-                  src={jsIcon}
-                  alt="javascript logo"
-                  className="inline-block w-8 h-8 mx-1"
-                />
-                <b>JavaScript:</b> Conozco Javascript más que a otro lenguaje de
-                programación. Sé trabajarlo con NodeJS y en los navegadores. Las
-                tecnologías que mejor conozco son Express y React. Conozco como
-                crear REST APIS e interfaces gráficas.
-              </li>
-              <li>
-                <img
-                  src={javaIcon}
-                  alt="java logo"
-                  className="inline-block w-8 h-8 mx-1"
-                />
-                <b>Java:</b> He trabajado con Java para crear interfaces
-                gráficas de escritorio y para realizar aplicaciones de línea de
-                comandos, también he generado plugins para servidores de
-                Minecraft.
-              </li>
-              <li>
-                <img
-                  src={cIcon}
-                  alt="c++ logo"
-                  className="inline-block w-8 h-8 mx-1"
-                />
-                <b>C++:</b> Durante mi formación profesional he estado en
-                contacto con este lenguaje para escribir aplicaciones de línea
-                de comandos, juegos, además de escribir rutinas para
-                microcontroladores como el ATmega8515.
-              </li>
-            </ul>
-          </Card>
-          <Card>
-            <h2 className="font-bold block w-full">Idiomas</h2>
-            <p className="block w-full">
-              Actualmente sólo sé Inglés y Español.
-            </p>
-          </Card>
-          <Card>
-            <img
-              src="https://thumbs.gfycat.com/AlertAdventurousAngwantibo-max-1mb.gif"
-              alt="Estoy llenando aún!"
-              className="aspect-auto w-64"
-            />
-          </Card>
+          <div className="flex flex-wrap items-center justify-center gap-2 flex-1">
+            <Card>
+              <h2 className="font-bold block w-full">
+                Lenguajes de programación
+              </h2>
+              <ul className="block text-justify">
+                <li>
+                  <img
+                    src={jsIcon}
+                    alt="javascript logo"
+                    className="inline-block w-8 h-8 mx-1"
+                  />
+                  <b>JavaScript:</b> Conozco Javascript más que a otro lenguaje
+                  de programación. Sé trabajarlo con NodeJS y en los
+                  navegadores. Las tecnologías que mejor conozco son Express y
+                  React. Conozco como crear REST APIS e interfaces gráficas.
+                </li>
+                <li>
+                  <img
+                    src={javaIcon}
+                    alt="java logo"
+                    className="inline-block w-8 h-8 mx-1"
+                  />
+                  <b>Java:</b> He trabajado con Java para crear interfaces
+                  gráficas de escritorio y para realizar aplicaciones de línea
+                  de comandos, también he generado plugins para servidores de
+                  Minecraft.
+                </li>
+                <li>
+                  <img
+                    src={cIcon}
+                    alt="c++ logo"
+                    className="inline-block w-8 h-8 mx-1"
+                  />
+                  <b>C++:</b> Durante mi formación profesional he estado en
+                  contacto con este lenguaje para escribir aplicaciones de línea
+                  de comandos, juegos, además de escribir rutinas para
+                  microcontroladores como el ATmega8515.
+                </li>
+              </ul>
+            </Card>
+            <Card>
+              <h2 className="font-bold block w-full">Idiomas</h2>
+              <p className="block w-full">
+                Actualmente sólo sé Inglés y Español.
+              </p>
+            </Card>
+            <Card>
+              <img
+                src="https://thumbs.gfycat.com/AlertAdventurousAngwantibo-max-1mb.gif"
+                alt="Estoy llenando aún!"
+                className="aspect-auto w-64"
+              />
+            </Card>
+          </div>
         </div>
       </div>
     </div>
