@@ -21,7 +21,7 @@ const Landing = () => {
     <div className="relative flex flex-wrap w-full h-screen bg-white justify-center content-center gap-y-2">
       <div className="absolute top-0 left-0 h-32 md:h-64 aspect-square bg-[url('b1.svg')]"></div>
       <div className="absolute top-0 right-0 h-32 md:h-64 aspect-square bg-[url('b2.svg')]"></div>
-      <h1 className="text-center block w-full font-['Coming_Soon'] font-regular text-4xl lg:text-6xl">
+      <h1 className="text-center block w-full font-['Coming_Soon'] font-regular text-4xl md:text-6xl lg:text-7xl xl:text-8xl">
         Ernesto Ramírez
       </h1>
       <div className="flex flex-wrap w-full justify-center items-center gap-x-2">
