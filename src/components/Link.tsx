@@ -1,8 +1,12 @@
-const Link: React.FC<{ href: string; className?: string }> = ({
-  children,
-  href,
-  className
-}) => {
+import React from "react";
+
+interface LinkProps {
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+}
+
+const Link = ({ children, href, className }: LinkProps) => {
   return (
     <a
       href={href}

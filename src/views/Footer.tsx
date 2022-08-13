@@ -1,5 +1,5 @@
-import reactIcon from "./iconos/react.svg";
-import ghIcon from "./iconos/github.svg";
+import reactIcon from "../iconos/react.svg";
+import ghIcon from "../iconos/github.svg";
 
 export default function Footer() {
   return (
