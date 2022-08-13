@@ -4,7 +4,7 @@ const LinkSection = ({ links }: { links: string[] }) => {
   const [activeLink, setActiveLink] = useState<String>();
 
   return (
-    <div className="rounded-md p-2 bg-white bg-opacity-80 flex justify-center items-center">
+    <div className="rounded-md p-2 bg-black flex flex-col justify-center items-center">
       {links.map((link) => (
         <a
           key={link}
@@ -14,7 +14,7 @@ const LinkSection = ({ links }: { links: string[] }) => {
         >
           <span
             className={`inline-block w-2 h-2 rounded-full ${
-              link === activeLink ? "bg-black" : "bg-gray-300"
+              link === activeLink ? "bg-white" : "bg-gray-300"
             }`}
           ></span>
         </a>
