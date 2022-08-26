@@ -4,6 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+if (!window.ResizeObserver) {
+  import("@juggle/resize-observer").then((mod) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    window.ResizeObserver = mod.ResizeObserver;
+  });
+}
+
 const container = document.getElementById("root");
 const root = createRoot(container!);
 root.render(
