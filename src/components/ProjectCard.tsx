@@ -3,18 +3,18 @@ import Card from "./Card";
 import LanguageIcon from "./languages/LanguageIcon";
 
 export interface ProjectCardProps {
-  id: number;
+  id?: number;
   name: string;
   description: string;
   html_url: string;
-  style: React.HTMLAttributes<HTMLDivElement>["style"];
+  style?: React.HTMLAttributes<HTMLDivElement>["style"];
   language: string;
 }
 
 export default function ProjectCard({
   name,
   description,
-  style,
+  style = {},
   html_url,
   language,
 }: ProjectCardProps) {

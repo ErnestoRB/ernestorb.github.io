@@ -5,10 +5,6 @@ import Landing from "./views/Landing";
 import Me from "./views/Me";
 
 function App() {
-  useEffect(() => {
-    document.title = "Ernesto Ramírez Web Developer";
-  }, []);
-
   return (
     <div
       className="flex-row bg-white h-screen w-screen overflow-y-auto items-center 

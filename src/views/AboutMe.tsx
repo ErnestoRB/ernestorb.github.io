@@ -42,7 +42,10 @@ export default function AboutMe() {
   }));
 
   useEffect(() => {
-    if (!IntersectionObserver) return;
+    if (!window.IntersectionObserver) {
+      api.start({ immediate: true });
+      return;
+    }
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
