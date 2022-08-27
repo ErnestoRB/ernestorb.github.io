@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import LinkSection from "./components/LinkSection";
 import Footer from "./views/Footer";
 import Landing from "./views/Landing";
