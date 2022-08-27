@@ -1,7 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Coming+Soon&family=Quicksand:wght@300;400;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("fonts/Quicksand.ttf");
+}
+
+@font-face {
+  font-family: "Coming Soon";
+  src: url("fonts/ComingSoon.ttf");
+}
+
+* {
+  font-family: "Quicksand";
+}
 
 .no-scroll::-webkit-scrollbar {
   display: none;
