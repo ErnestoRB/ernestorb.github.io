@@ -23,7 +23,7 @@ export default function ProjectCard({
       style={style}
       className="relative w-64 h-max flex-none hover:z-10"
     >
-      <Card className="flex flex-col items-center gap-y-2 box-border bg-gray-500 hover:bg-gray-800 hover:border-blue-700 border-gray-200 border-2 text-white select-none">
+      <Card className="flex flex-col items-center gap-y-2 box-border bg-gray-500 hover:bg-gray-800 hover:border-blue-700 border-gray-200 border-2 text-white bg-opacity-80 backdrop-blur select-none">
         <a
           href={html_url}
           className="underline decoration-red-100 decoration-4"
@@ -32,9 +32,7 @@ export default function ProjectCard({
         </a>
         <hr className=""></hr>
         <p className="text-md">{description}</p>
-        <Card className="flex items-center justify-center">
-          <LanguageIcon lang={language}></LanguageIcon>
-        </Card>
+        <LanguageIcon lang={language}></LanguageIcon>
       </Card>
     </animated.div>
   );

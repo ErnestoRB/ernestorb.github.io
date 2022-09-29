@@ -34,7 +34,8 @@ const Techs: TechItem[] = [
   },
   {
     name: "Python",
-    description: "Muy poco para considerarme un experto, pero no desconocido.",
+    description:
+      "Para ser sincero, sólo he desarrollado algunos scripts en este lenguaje.",
   },
   {
     name: "Ubuntu",
@@ -74,6 +75,37 @@ const Techs: TechItem[] = [
         </a>{" "}
         está hecha con Express.
       </span>
+    ),
+  },
+  {
+    name: "Go",
+    description: (
+      <p>
+        Mi curiosidad por Go me llevó a usarlo en un programa que desarrollé
+        junto con un amigo para un trabajo de la universidad. Usamos Go Graphics
+        para graficar códigos binarios
+      </p>
+    ),
+  },
+  {
+    name: "Docker",
+    description: (
+      <p>
+        Esto consciente de lo importante que son los proyectos de
+        microservicios, es por ello que es necesario saber tecnologías para la
+        escalar horizontalmente un sistema. Además, agiliza mi tiempo al
+        desarrollar soluciones.
+      </p>
+    ),
+  },
+  {
+    name: "Angular",
+    description: (
+      <p>
+        Un framework completo para desarrollar aplicaciones Web. ¿Algo se ocupa?
+        Seguramente angular lo tiene out of the box. Estoy trabajando en
+        proyectos basados en Angular.
+      </p>
     ),
   },
 ];
