@@ -7,24 +7,30 @@ import ErrorHandler from "./ErrorHandler";
 import FaceTexture from "./textures/FaceTexture";
 import font from "./roboto.json";
 import { MeshBasicMaterial } from "three";
-
-const config = {
-  tension: 200,
-  mass: 1,
-  friction: 50,
-};
+import { useState } from "react";
 
 const materials = [new MeshBasicMaterial({ color: "#000" })];
 
 export default function FaceBox() {
+  const [spinning, setSpinning] = useState(false);
+
   const [{ rotation }, api] = useSpring(() => ({
     rotation: [0, 0, 0],
-    config,
   }));
 
-  const bind = useDrag(({ offset: [x, y] }) => {
+  const { position } = useSpring({
+    from: { position: [0, 0, 0] },
+    to: { position: [0, 0.5, 0] },
+    config: { mass: 5, tension: 180, friction: 40 },
+    loop: { reverse: true },
+    cancel: spinning,
+  });
+
+  const bind = useDrag(({ offset: [x, y], active }) => {
+    setSpinning(active);
     api.start({ rotation: [y * 0.1, x * 0.1, 0] });
   });
+
   return (
     <Canvas shadows className="touch-none">
       <ErrorHandler
@@ -39,6 +45,7 @@ export default function FaceBox() {
         <a.mesh
           {...bind()}
           rotation={rotation as unknown as [x: number, y: number, z: number]}
+          position={position}
           castShadow
         >
           <boxGeometry args={[2, 2, 2]}></boxGeometry>

@@ -113,13 +113,14 @@ const Techs: TechItem[] = [
 export default function Tech() {
   const ref = useRef<HTMLDivElement>(null);
   const [parentElement, setParentElement] = useState<HTMLElement | undefined>();
+  const [lastZ, setLastZ] = useState(0);
 
   useEffect(() => setParentElement(ref.current!), []);
 
   return (
     <a.div
       id="techs"
-      className="flex p-8 bg-gradient-to-br from-rose-300 to-blue-300 flex-col gap-y-8" /* style={{ background }} */
+      className="flex p-8 bg-gradient-to-br from-rose-300 to-blue-300 flex-col gap-y-8"
     >
       <H1 className="text-center font-bold xl:text-3xl decoration-black underline underline-offset-4">
         Tecnologías
@@ -132,10 +133,11 @@ export default function Tech() {
           </P>
         </Card>
       </div>
-
       <div className="w-full h-screen relative" ref={ref}>
         {parentElement && (
-          <DraggableContext.Provider value={{ refParent: parentElement }}>
+          <DraggableContext.Provider
+            value={{ refParent: parentElement, lastZ, setLastZ }}
+          >
             {Techs.map((tech, i) => (
               <Technology {...tech} key={i}></Technology>
             ))}

@@ -1,4 +1,9 @@
-import { useTransition, animated as a, config } from "@react-spring/web";
+import {
+  useTransition,
+  animated as a,
+  config,
+  useSpring,
+} from "@react-spring/web";
 import FaceBox from "../three/FaceBox";
 import Container from "../components/Container";
 import H2 from "../components/text/H2";
@@ -41,6 +46,20 @@ export default function AboutMe() {
     config: config.gentle,
   }));
 
+  const styles = useSpring({
+    to: {
+      scale: 1.2,
+    },
+    from: {
+      scale: 1,
+    },
+    config: { mass: 5, tension: 180, friction: 40 },
+
+    loop: {
+      reverse: true,
+    },
+  });
+
   useEffect(() => {
     if (!window.IntersectionObserver) {
       api.start({ immediate: true });
@@ -81,8 +100,14 @@ export default function AboutMe() {
           <div className="flex-shrink flex justify-center items-center bg-blue-600">
             <div
               data-canvas="face"
-              className="w-32 h-32 md:w-64 md:h-64 right-0 touch-none"
+              className="flex justify-center relative w-32 h-32 md:w-64 md:h-64 right-0 touch-none"
             >
+              <a.span
+                style={styles}
+                className="border-black absolute shadow-2xl  bg-rose-600 text-white px-2 py-1 rounded shadow-lg"
+              >
+                Gírame!
+              </a.span>
               <FaceBox></FaceBox>
             </div>
           </div>

@@ -13,9 +13,14 @@ import { usePosition } from "@ernestorb/useposition";
 interface DraggableContextValue {
   refParent?: HTMLElement;
   initialPosition?: Coords;
+  lastZ: number;
+  setLastZ: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const DraggableContext = React.createContext<DraggableContextValue>({});
+export const DraggableContext = React.createContext<DraggableContextValue>({
+  lastZ: 0,
+  setLastZ: () => {},
+});
 
 const config = {
   tension: 200,
@@ -28,14 +33,20 @@ export default function Draggable({
   className = "",
   axis,
 }: BasicComponentProps & { axis?: "x" | "y" | "lock" }) {
-  const { refParent, initialPosition: contextInitPos } =
-    useContext(DraggableContext);
+  const {
+    refParent,
+    initialPosition: contextInitPos,
+    lastZ,
+    setLastZ,
+  } = useContext(DraggableContext);
   const [initPos, setInitPos] = useState<Coords>(
     contextInitPos || {
       x: 0,
       y: 0,
     }
   );
+
+  const [zIndex, setZIndex] = useState(lastZ);
 
   const ref = useRef<HTMLDivElement>(null);
   const [xP, yP] = useMemo(() => [Math.random(), Math.random()], []);
@@ -85,6 +96,13 @@ export default function Draggable({
       if (tap) {
         return;
       }
+      if (lastZ === 0) {
+        setZIndex(1);
+      }
+      if (lastZ !== zIndex) {
+        setZIndex(lastZ + 1);
+        setLastZ(lastZ + 1);
+      }
       api.start({ x, y, config });
       event.preventDefault();
       event.stopPropagation();
@@ -100,7 +118,7 @@ export default function Draggable({
   return (
     <a.div
       {...bind()}
-      style={{ top: y, left: x }}
+      style={{ top: y, left: x, zIndex }}
       ref={ref}
       className={`absolute touch-none ${className}`}
     >

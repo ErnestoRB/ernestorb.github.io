@@ -1,22 +1,10 @@
 import Link from "../components/Link";
-import githubIcon from "../iconos/github.svg";
-import instagramIcon from "../iconos/instagram.svg";
+
 import mailIcon from "../iconos/mail.svg";
 import arrowDownIcon from "../iconos/arrow-down.svg";
-import bloggerIcon from "../iconos/blogger.svg";
-import React from "react";
 import { animated as a, useSpring } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
-
-const ButtonOrganizer: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  return (
-    <div className="grid grid-cols-1 grid-rows-2 place-items-center">
-      {children}
-    </div>
-  );
-};
+import SocialButtons from "../SocialButtons";
 
 const Landing = () => {
   const [{ xy }, api] = useSpring(() => ({
@@ -55,48 +43,7 @@ const Landing = () => {
           Ernesto Ramírez
         </h1>
         <div className="flex flex-wrap w-full justify-center items-center gap-x-2">
-          <ButtonOrganizer>
-            <p>¿Quieres ver mi trabajo?</p>
-            <Link
-              href={"https://github.com/ErnestoRB"}
-              className="bg-white text-black shadow-lg"
-            >
-              <img
-                src={githubIcon}
-                alt="GitHub repo"
-                className="inline w-8 h-8 "
-              />
-              <span>Ir a mi GitHub</span>
-            </Link>
-          </ButtonOrganizer>
-          <ButtonOrganizer>
-            <p>¿Quieres involucrarte en mi vida personal?</p>
-            <Link
-              href={"https://github.com/ErnestoRB"}
-              className="bg-white text-black shadow-lg"
-            >
-              <img
-                src={instagramIcon}
-                alt="Instagram profile"
-                className="inline w-8 h-8 "
-              />
-              <span>Ir a mi Instagram</span>
-            </Link>
-          </ButtonOrganizer>
-          <ButtonOrganizer>
-            <p>Lee cosas interesantes</p>
-            <Link
-              href={"https://blog.ernestorb.com"}
-              className="bg-white text-black shadow-lg"
-            >
-              <img
-                src={bloggerIcon}
-                alt="GitHub repo"
-                className="inline w-8 h-8 "
-              />
-              <span>Visita mi blog</span>
-            </Link>
-          </ButtonOrganizer>
+          <SocialButtons></SocialButtons>
         </div>
         <div className="flex w-full justify-center content-center">
           <Link
