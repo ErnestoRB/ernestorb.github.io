@@ -1,5 +1,5 @@
 import { useSpring, animated } from "@react-spring/web";
-import { useDrag } from "@use-gesture/react";
+import { useDrag, useWheel } from "@use-gesture/react";
 import { useRef } from "react";
 import useGHRepos from "../hooks/useGHRepos";
 import ProjectCard from "./ProjectCard";
@@ -21,7 +21,6 @@ export default function ProjectCardList({
     ({ event, offset: [x] }) => {
       event.preventDefault();
       const nX = -x; // X va inverso al ScrollLeft
-      console.log(divRef.current?.scrollWidth, nX);
       api.start({
         scrollLeft: nX,
       });
@@ -40,6 +39,33 @@ export default function ProjectCardList({
               )
             : 0,
       }),
+    }
+  );
+
+  useWheel(
+    ({ event, offset: [x] }) => {
+      event.preventDefault();
+      const nX = -x; // X va inverso al ScrollLeft
+      api.start({
+        scrollLeft: nX,
+      });
+    },
+    {
+      axis: "x",
+      bounds: () => ({
+        right: 0,
+        left:
+          data && divRef.current
+            ? -Math.max(
+                cardWidth * data.length -
+                  overlap * (data.length - 1) -
+                  divRef.current.clientWidth,
+                0
+              )
+            : 0,
+      }),
+      eventOptions: { passive: false },
+      target: divRef,
     }
   );
 

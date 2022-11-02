@@ -1,5 +1,5 @@
 import { useSpring, animated as a } from "@react-spring/web";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { usePosition } from "@ernestorb/useposition";
 
 export default function Openable({
@@ -10,7 +10,6 @@ export default function Openable({
   children: React.ReactElement[];
   sep?: number;
 }) {
-  const [element, setElement] = useState<HTMLElement>();
   const ref = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const active = useRef(false);
@@ -40,12 +39,8 @@ export default function Openable({
     config: { duration: 200 },
   }));
 
-  useEffect(() => {
-    setElement(ref.current!);
-  }, []);
-
   usePosition(
-    element,
+    ref,
     ({ left, right, bottom, top, width, height }, { windowResize }) => {
       if (!menuRef.current) return;
       if (

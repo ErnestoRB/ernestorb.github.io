@@ -11,7 +11,7 @@ import React, {
 import { usePosition } from "@ernestorb/useposition";
 
 interface DraggableContextValue {
-  refParent?: HTMLElement;
+  refParent?: React.RefObject<HTMLElement>;
   initialPosition?: Coords;
   lastZ: number;
   setLastZ: React.Dispatch<React.SetStateAction<number>>;
@@ -55,29 +55,28 @@ export default function Draggable({
     cancel: true,
     config,
   }));
-  const [parentElement, setParentElement] = useState<HTMLElement | undefined>(
-    refParent
-  );
 
   const adjustDefaultPosition = useCallback(() => {
+    const parentElement = refParent || ref;
     if (contextInitPos || !parentElement) return;
     const element = ref.current!;
     setInitPos({
-      x: Math.max(0, xP * parentElement.clientWidth - element.clientWidth),
-      y: Math.max(0, yP * parentElement.clientHeight - element.clientHeight),
+      x: Math.max(
+        0,
+        xP * parentElement.current!.clientWidth - element.clientWidth
+      ),
+      y: Math.max(
+        0,
+        yP * parentElement.current!.clientHeight - element.clientHeight
+      ),
     });
-  }, [xP, yP, parentElement, contextInitPos]);
+  }, [xP, yP, ref, refParent, contextInitPos]);
 
-  usePosition(parentElement, (_, { windowResize }) => {
+  usePosition(refParent || ref, (_, { windowResize }) => {
     if (windowResize) {
       adjustDefaultPosition();
     }
   });
-
-  useEffect(() => {
-    const p = refParent || ref.current!.parentElement!;
-    setParentElement(p);
-  }, [refParent]);
 
   useEffect(() => {
     if (contextInitPos) {
@@ -108,7 +107,12 @@ export default function Draggable({
       event.stopPropagation();
     },
     {
-      bounds: () => parentElement || { top: 0, left: 0, bottom: 0, right: 0 },
+      bounds: () => {
+        const parentElement = refParent || ref;
+        return (
+          parentElement.current || { top: 0, left: 0, bottom: 0, right: 0 }
+        );
+      },
       from: () => [x.get(), y.get()],
       filterTaps: true,
       axis,

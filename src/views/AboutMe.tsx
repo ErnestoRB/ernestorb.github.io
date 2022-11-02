@@ -104,7 +104,7 @@ export default function AboutMe() {
             >
               <a.span
                 style={styles}
-                className="border-black absolute shadow-2xl  bg-rose-600 text-white px-2 py-1 rounded shadow-lg"
+                className="border-black absolute bg-black text-white px-2 py-1 rounded shadow-lg"
               >
                 Gírame!
               </a.span>

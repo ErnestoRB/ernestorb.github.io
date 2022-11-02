@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ernestorb/useposition": "^1.0.1",
+    "@ernestorb/useposition": ">2.0.0-pre",
     "@juggle/resize-observer": "^3.4.0",
     "@react-spring/three": "^9.5.0",
     "@react-spring/web": "^9.5.2",
