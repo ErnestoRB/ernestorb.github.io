@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { animated } from "@react-spring/web";
 import Card from "./Card";
 import LanguageIcon from "./languages/LanguageIcon";
@@ -9,6 +10,7 @@ export interface ProjectCardProps {
   html_url: string;
   style?: React.HTMLAttributes<HTMLDivElement>["style"];
   language: string;
+  languages_url: string;
 }
 
 export default function ProjectCard({
@@ -16,8 +18,21 @@ export default function ProjectCard({
   description,
   style = {},
   html_url,
-  language,
+  languages_url,
 }: ProjectCardProps) {
+  const [languages, setLanguages] = useState<
+    { [key: string]: string } | undefined
+  >(undefined);
+
+  useEffect(() => {
+    if (!languages_url) {
+      return;
+    }
+    fetch(languages_url)
+      .then((res) => res.json())
+      .then((data) => setLanguages(data));
+  }, [languages_url]);
+
   return (
     <animated.div
       style={style}
@@ -32,7 +47,15 @@ export default function ProjectCard({
         </a>
         <hr className=""></hr>
         <p className="text-md">{description}</p>
-        <LanguageIcon lang={language}></LanguageIcon>
+        {languages &&
+          Object.keys(languages)
+            .slice(0, 3)
+            .map((langName) => (
+              <LanguageIcon key={langName} lang={langName}></LanguageIcon>
+            ))}
+        {!languages && (
+          <span>Error para mostrar los lenguajes del proyecto {name}</span>
+        )}
       </Card>
     </animated.div>
   );

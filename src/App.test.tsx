@@ -20,6 +20,7 @@ test("render ProjectCard component sucessfully", () => {
       name="Proyecto de prueba"
       description="Esto deberia ser montado"
       language="Java"
+      languages_url="http://"
       html_url="/"
     />
   );

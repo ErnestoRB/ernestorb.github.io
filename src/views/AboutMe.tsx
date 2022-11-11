@@ -16,6 +16,9 @@ const items = [
     Mi nombre es <b>Ernesto Ramírez</b>, tengo 20 años. <br />
   </P>,
   <P className="text-center">
+    Soy un apasionado por las computadoras 💻, el deporte ⚽ y la música 🎵.
+  </P>,
+  <P className="text-center">
     Actualmente estudio Ingeniería en Sistemas Computacionales en la
     <a
       href="https://uaa.mx"
@@ -27,7 +30,7 @@ const items = [
   <P className="text-center">
     Desde que era pequeño tuve un gran interés por la computación.
   </P>,
-  <P className="text-center">Me encanta el desarrollo WEB</P>,
+  <P className="text-center">Me encanta y me especializo en desarrollo WEB</P>,
   <P className="text-center">
     Creo firmemente que la dedicación y la constancia son los pilares para
     desarrollar cualquier proyecto

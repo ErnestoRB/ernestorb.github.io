@@ -1,6 +1,7 @@
 import Container from "../components/Container";
 import ProjectCardList from "../components/ProjectCardList";
 import H2 from "../components/text/H2";
+import P from "../components/text/P";
 import TextDecoration from "../components/text/TextDecoration";
 
 export default function Projects() {
@@ -14,8 +15,9 @@ export default function Projects() {
           Proyectos en GitHub
         </TextDecoration>
       </H2>
-      <div className="w-full h-full flex items-center  px-6">
-        <div className="border-x-8 border-black shadow-inner bg-gray-100 bg-opacity-5 0 overflow-hidden">
+      <div className="w-full h-full flex flex-col items-center justify-center gap-y-2 md:gap-y-10 px-6">
+        <P>Usa el puntero para deslizar las tarjetas!</P>
+        <div className="border-x-8 border-black shadow-inner bg-blue-400  0 overflow-hidden">
           <ProjectCardList className="shadow-inner"></ProjectCardList>
         </div>
       </div>
