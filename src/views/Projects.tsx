@@ -17,7 +17,7 @@ export default function Projects() {
       </H2>
       <div className="w-full h-full flex flex-col items-center justify-center gap-y-2 md:gap-y-10 px-6">
         <P>Usa el puntero para deslizar las tarjetas!</P>
-        <div className="border-x-8 border-black shadow-inner bg-blue-400  0 overflow-hidden">
+        <div className="flex-0 border-x-8 border-black shadow-inner bg-blue-400 max-w-full overflow-hidden">
           <ProjectCardList className="shadow-inner"></ProjectCardList>
         </div>
       </div>
