@@ -41,7 +41,7 @@ export default function SocialButtons() {
           <img
             src={bloggerIcon}
             alt="Mi blogo"
-            className="inline w-8 h- "
+            className="inline w-8 h-8"
           />
           <span>Visita mi blog</span>
         </Link>
