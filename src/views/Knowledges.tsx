@@ -2,7 +2,6 @@ import Card from "../components/Card";
 import jsIcon from "./iconos/javascript.svg";
 import javaIcon from "./iconos/java-original.svg";
 import cIcon from "./iconos/c-plusplus.svg";
-import CredlyBadge from "../components/Badge";
 
 export default function Knowledges() {
   return (
@@ -82,7 +81,6 @@ export default function Knowledges() {
               <li>...y probablemente muchas más que olvidé!</li>
             </ul>
           </Card>
-          <CredlyBadge></CredlyBadge>
         </div>
       </div>
     </div>

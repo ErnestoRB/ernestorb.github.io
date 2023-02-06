@@ -1,5 +1,4 @@
 import Link from "../components/Link";
-
 import mailIcon from "../iconos/mail.svg";
 import arrowDownIcon from "../iconos/arrow-down.svg";
 import { animated as a, useSpring } from "@react-spring/web";
@@ -27,10 +26,8 @@ const Landing = () => {
   const { background } = useSpring({
     from: {
       background: "#5fbdec",
-      // background: "linear-gradient(to bottom right, #5fbdec, #dc7ab6)",
     },
     to: {
-      // background: "linear-gradient(to bottom right, #5fbdec, #94d3f2)",
       background: "#94d3f2",
     },
     loop: {
@@ -56,7 +53,7 @@ const Landing = () => {
     >
       <a.div
         style={{
-          /* backgroundPosition: xy.to((x) => `${x / 4}vw 0%`) */ background,
+          background,
         }}
         className="absolute top-0 left-0 bg-fixed w-full h-full"
       ></a.div>
