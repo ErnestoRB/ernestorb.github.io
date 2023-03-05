@@ -16,7 +16,7 @@ export default function Technology({
     <Draggable initialPosition={initialPosition}>
       <Openable
         parent={
-          <div className="flex items-center flex-wrap justify-center bg-white text-black p-4 rounded-md touch-none select-none shadow-lg">
+          <div className="flex items-center flex-wrap justify-center gap-x-2 bg-white text-black p-4 rounded-md touch-none select-none shadow-lg">
             {name}
             <LanguageIcon lang={name} />
           </div>

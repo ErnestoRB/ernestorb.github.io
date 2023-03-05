@@ -5,7 +5,7 @@
   "dependencies": {
     "@ernestorb/components": "github:ErnestoRB/components",
     "@ernestorb/useposition": ">2.0.0-pre",
-    "@juggle/resize-observer": "^3.4.0",
+    "@react-spring/parallax": "^9.6.1",
     "@react-spring/three": "^9.5.0",
     "@react-spring/web": "^9.5.2",
     "@react-three/drei": "^9.17.1",
@@ -31,6 +31,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules"
+    ]
   },
   "eslintConfig": {
     "extends": [
