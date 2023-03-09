@@ -5,7 +5,11 @@ import bloggerIcon from "../iconos/blogger.svg";
 import mailIcon from "../iconos/mail.svg";
 
 function NavItem({ children }: { children: React.ReactNode }) {
-  return <li className="border-gradient">{children}</li>;
+  return (
+    <li className="transition-all border-0 border-rose-1 hover:border-b-4">
+      {children}
+    </li>
+  );
 }
 
 export default function NavBar() {

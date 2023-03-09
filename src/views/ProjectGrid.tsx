@@ -1,5 +1,6 @@
 import LanguageIcon from "../components/languages/LanguageIcon";
 import ProjectLink from "../components/links/ProjectLink";
+import Slider from "../components/Slider";
 import royalmind from "../images/royalmind.png";
 import skywars from "../images/skywars.png";
 import tablist from "../images/tablistmanager.png";
@@ -13,26 +14,26 @@ export function ProjectGrid() {
         e.stopPropagation();
       }}
     >
-      <Project img={royalmind} title="Royalmind Network website">
-        API REST y Página web de la red de servidores de minijuegos Royalmind
-        Network (anteriormente Minecraft México)
+      <Project images={[royalmind]} title="Royalmind Network website">
+        API REST y Página web de la red de servidores de Minecraft de minijuegos
+        Royalmind Network (anteriormente MCMéxico)
       </Project>
-      <Project img={skywars} title="Skywars plugin">
-        Plugin para crear servidores de minijuegos "Skywars" en el popular juego
-        Minecraft.
+      <Project images={[skywars]} title="Skywars plugin">
+        Plugin para crear servidores del minijuego "Skywars" en el popular juego
+        "Minecraft".
         <ProjectLink href="https://www.spigotmc.org/resources/skywars.107934/">
           <LanguageIcon lang="spigot" format="png"></LanguageIcon> Ir a SpigotMC
         </ProjectLink>
       </Project>
-      <Project img={useposition} title="usePosition hook">
-        Hook de React para obtener la posición de un elemento de manera fácil y
-        declarativa, con alto soporte en los navegadores.
+      <Project images={[useposition]} title="usePosition hook">
+        Hook de React para obtener la posición en pantalla de un elemento de
+        manera fácil y declarativa, con alto soporte en los navegadores.
         <ProjectLink href="https://www.npmjs.com/package/@ernestorb/useposition">
           <LanguageIcon lang="npm"></LanguageIcon> Ir a npm
         </ProjectLink>
       </Project>
-      <Project img={tablist} title="TablistManagerAPI">
-        API para manipular la tablist de jugadores en un servidor SpigotMC.
+      <Project images={[tablist]} title="TablistManagerAPI">
+        API para manipular la tablist de jugadores en un servidor de SpigotMC.
         <ProjectLink href="https://www.spigotmc.org/resources/tablistmanager.107039/">
           <LanguageIcon lang="spigot" format="png"></LanguageIcon> Ir a SpigotMC
         </ProjectLink>
@@ -42,21 +43,21 @@ export function ProjectGrid() {
 }
 
 function Project({
-  img,
+  images,
   title,
   children,
 }: {
-  img: string;
+  images: string[];
   title: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="bg-gray-700 rounded-sm flex flex-col shadow-lg text-white w-64 lg:w-96 ">
-      <img
-        src={img}
-        alt={`Proyecto ${title}`}
+      <Slider
+        images={images}
         className="rounded-l-sm w-full h-32 lg:h-48 flex-0 object-cover"
-      />
+      ></Slider>
+
       <div className="flex-1 p-4 ">
         <h3 className="font-bebas text-2xl">{title}</h3>
         <div className="text-sm font-quicksand">{children}</div>

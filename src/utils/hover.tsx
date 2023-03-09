@@ -13,9 +13,6 @@ export const registerHoverEvent = () => {
 
   const onMouseLeave: MouseEventHandler<HTMLElement> = (e) => {
     const { currentTarget } = e;
-
-    currentTarget.style.setProperty("--mouse-x", `-100`);
-    currentTarget.style.setProperty("--mouse-y", `-100`);
   };
 
   return {

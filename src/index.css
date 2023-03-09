@@ -37,33 +37,27 @@
 }
 
 .gradient-hover {
+  background-color: black;
   position: relative;
 }
 
+.gradient-hover:hover::before {
+  opacity: 1;
+}
+
 .gradient-hover::before {
+  transition: all 0.3s;
+  opacity: 0;
   position: absolute;
   content: "";
   width: 100%;
   height: 100%;
   background-color: black;
   background-image: radial-gradient(
-    200px circle at var(--mouse-x) var(--mouse-y),
+    100px circle at var(--mouse-x) var(--mouse-y),
     rgb(82, 82, 82) 0%,
     transparent 100%
   );
-}
-
-.border-gradient {
-  transition: all 0.5s ease-in-out;
-  display: flex;
-  align-items: flex-end;
-  position: relative;
-  @apply border-b-white;
-}
-.border-gradient:hover {
-  scale: 110%;
-  border-bottom-width: 4px;
-  @apply border-b-purple-1;
 }
 
 /* width */

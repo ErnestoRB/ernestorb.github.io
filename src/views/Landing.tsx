@@ -14,12 +14,9 @@ const Landing = () => {
   return (
     <div className="relative bg-transparent overflow-x-clip text-black flex flex-col h-full w-full">
       <NavBar></NavBar>
-      <div className="bg-white flex-1 relative">
+      <div className="gradient-hover flex-1 relative" {...bind}>
         <Parallax pages={4} horizontal config={{}} ref={pRef}>
-          <div className="w-full h-full" {...bind}>
-            <ParallaxLayer key="algo" className="-z-20" offset={0} factor={3}>
-              <div className="gradient-hover h-full"></div>
-            </ParallaxLayer>
+          <div className="w-full h-full">
             <ParallaxLayer
               key="welcome"
               className="relative w-full h-full flex justify-center items-center font-bebas text-6xl text-white"
