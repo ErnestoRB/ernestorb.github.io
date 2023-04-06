@@ -4,16 +4,18 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   darkMode: "class",
-  extend: {
-    maxWidth: {
-      80: "80%",
-    },
-    backgroundImage: {
-      cursor: `radial-gradient(100px circle at var(--mouse-x) var(--mouse-y),rgb(82, 82, 82) 0%,transparent 100%);`,
-    },
-  },
+
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    extend: {
+      maxWidth: {
+        80: "80%",
+      },
+      backgroundImage: {
+        cursor:
+          "radial-gradient(100px circle at var(--mouse-x) var(--mouse-y),rgb(82, 82, 82) 0%,transparent 100%);",
+      },
+    },
     fontFamily: {
       staatliches: "'Staatliches'",
       bebas: "'Bebas'",
@@ -38,6 +40,7 @@ module.exports = {
       blanco: {
         100: "#e8e8e8",
         200: "#fff8f7",
+        300: "#f1efef",
       },
       black: "#000",
       blue: {

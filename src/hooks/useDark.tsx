@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function useDark() {
   const [isDark, setIsDark] = useState<boolean>(
@@ -8,18 +8,19 @@ export default function useDark() {
         window.matchMedia("(prefers-color-scheme: dark)").matches)
   );
 
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-  }, [isDark]);
-
   return {
     isDark,
     toggleDark() {
-      setIsDark((dark) => !dark);
+      setIsDark((dark) => {
+        if (dark) {
+          document.documentElement.classList.remove("dark");
+          localStorage.theme = "light";
+        } else {
+          document.documentElement.classList.add("dark");
+          localStorage.theme = "dark";
+        }
+        return !dark;
+      });
     },
   };
 }

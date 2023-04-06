@@ -3,25 +3,31 @@ import githubIcon from "../iconos/github-white.svg";
 import linkedinIcon from "../iconos/linkedin.svg";
 import bloggerIcon from "../iconos/blogger.svg";
 import mailIcon from "../iconos/mail.svg";
+
 import useDark from "../hooks/useDark";
+import ToggleDark from "./ToggleDark";
 
 function NavItem({ children }: { children: React.ReactNode }) {
   return (
-    <li className="transition-all border-0  border-rose-1 hover:border-b-4">
+    <li className="transition-all border-0  border-green-1 dark:border-rose-1 hover:border-b-4">
       {children}
     </li>
   );
 }
 
 export default function NavBar() {
-  const { toggleDark } = useDark();
+  const { isDark } = useDark();
 
   const { background } = useSpring({
     from: {
-      background: "linear-gradient(to right,#e73677, #9226ff)",
+      background: isDark
+        ? "linear-gradient(to right,#e73677, #9226ff)"
+        : "linear-gradient(to right,#9226ff, #850aaf)",
     },
     to: {
-      background: "linear-gradient(to right, #9226ff,  #e73677)",
+      background: isDark
+        ? "linear-gradient(to right, #9226ff,  #e73677)"
+        : "linear-gradient(to right,#9226ff, #850aaf)",
     },
     loop: { reverse: true },
     config: { duration: 5000 },
@@ -37,9 +43,7 @@ export default function NavBar() {
         Ernesto Ramírez
       </h1>
       <ul className="k flex w-full md:flex-1 justify-center md:justify-end flex-end gap-x-2  transition-all ">
-        <button className="bg-inherit" onClick={toggleDark}>
-          Dark Mode
-        </button>
+        <ToggleDark></ToggleDark>
         <NavItem>
           <a href="https://www.linkedin.com/in/ernesto-ram%C3%ADrez-briano/">
             <img
