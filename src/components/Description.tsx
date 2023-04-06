@@ -45,7 +45,7 @@ export function Description() {
   });
 
   return (
-    <div className="text-white text-center font-staatliches text-6xl" ref={ref}>
+    <div className=" text-center font-staatliches text-6xl" ref={ref}>
       {transitions((style, index, state) => {
         return (
           <a.div className="font-staatliches" style={style}>
@@ -64,9 +64,7 @@ export function MyComponent() {
       from: { opacity: 0 },
       enter: { opacity: 1 },
       leave: { opacity: 0.5 },
-      onRest: () => {
-        console.log("called");
-      },
+
       config: config.slow,
     };
   });

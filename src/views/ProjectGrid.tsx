@@ -52,7 +52,7 @@ function Project({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-gray-700 rounded-sm flex flex-col shadow-lg text-white w-64 lg:w-96 ">
+    <div className="bg-white dark:bg-gray-700 rounded-sm flex flex-col shadow-2xl dark:shadow-lg  w-64 lg:w-96 text-black dark:text-white">
       <Slider
         images={images}
         className="rounded-l-sm w-full h-32 lg:h-48 flex-0 object-cover"

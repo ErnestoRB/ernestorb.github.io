@@ -37,7 +37,7 @@
 }
 
 .gradient-hover {
-  background-color: black;
+  @apply dark:from-black dark:to-black bg-gradient-to-tr from-blue-300 to-purple-1;
   position: relative;
 }
 
@@ -52,12 +52,6 @@
   content: "";
   width: 100%;
   height: 100%;
-  background-color: black;
-  background-image: radial-gradient(
-    100px circle at var(--mouse-x) var(--mouse-y),
-    rgb(82, 82, 82) 0%,
-    transparent 100%
-  );
 }
 
 /* width */
@@ -68,15 +62,15 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-gray-600;
+  @apply bg-white dark:bg-gray-600;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-white;
+  @apply bg-gray-400 dark:bg-white;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-300;
+  @apply bg-gray-800 dark:bg-gray-300;
 }
