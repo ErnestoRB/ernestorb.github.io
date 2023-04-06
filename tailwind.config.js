@@ -3,13 +3,19 @@ const colors = require("tailwindcss/colors");
 // https://maketintsandshades.com/#CD4197,4DB6EA,d41515
 
 module.exports = {
-  extend: {
-    maxWidth: {
-      80: "80%",
-    },
-  },
+  darkMode: "class",
+
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    extend: {
+      maxWidth: {
+        80: "80%",
+      },
+      backgroundImage: {
+        cursor:
+          "radial-gradient(100px circle at var(--mouse-x) var(--mouse-y),rgb(82, 82, 82) 0%,transparent 100%);",
+      },
+    },
     fontFamily: {
       staatliches: "'Staatliches'",
       bebas: "'Bebas'",
@@ -28,8 +34,14 @@ module.exports = {
     animation: {
       glow: "glow 3s linear infinite alternate-reverse",
     },
+
     colors: {
       white: "#FFF",
+      blanco: {
+        100: "#e8e8e8",
+        200: "#fff8f7",
+        300: "#f1efef",
+      },
       black: "#000",
       blue: {
         800: "#3e92bb",

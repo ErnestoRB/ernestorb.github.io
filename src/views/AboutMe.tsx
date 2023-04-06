@@ -17,7 +17,7 @@ const items = [
     Actualmente estudio Ingeniería en Sistemas Computacionales en la
     <a
       href="https://uaa.mx"
-      className="text-white underline decoration-purple-1 decoration-4 backdrop-opacity-70 rounded px-1 mx-1 py-0.5"
+      className=" underline decoration-black dark:decoration-purple-1 decoration-4 backdrop-opacity-70 rounded px-1 mx-1 py-0.5"
     >
       UAA
     </a>
@@ -58,15 +58,15 @@ export default function AboutMe() {
   }, [position]);
 
   return (
-    <div className="grid auto-rows-max place-content-center gap-y-4 sm:gap-y-8 z-10 h-full">
-      <H1 className="w-full text-center font-bold font-staatliches text-white z-50">
+    <div className="grid auto-rows-max place-content-center gap-y-4 sm:gap-y-8 z-10 h-full text-white">
+      <H1 className="w-full text-center font-bold font-staatliches z-50">
         Sobre mí
       </H1>
       <div className="flex flex-col md:flex-row w-full items-center px-8 justify-center gap-x-5 md:gap-x-10 xl:gap-x-20 gap-y-5 md:gap-y-0">
         <div className="flex-shrink flex justify-center items-center">
           <div
-            data-canvas="face"
-            className="flex justify-center items-center relative w-32 h-32 md:w-64 md:h-64 lg:w-96 lg:h-96 right-0 touch-none bg-gradient-to-tr from-purple-1 to-purple-3 rounded"
+            data-
+            className="flex justify-center items-center relative w-32 h-32 md:w-64 md:h-64 lg:w-96 lg:h-96 right-0 touch-none shadow-2xl bg-blanco-200  bg-opacity-30 dark:bg-gradient-to-tr from-purple-1 to-purple-3 rounded"
           >
             <ErrorHandler
               fallback={
@@ -84,7 +84,7 @@ export default function AboutMe() {
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className="grid place-items-center md:h-full gap-y-2 md:gap-y-4 max-w-3xl"
+          className="font-semibold grid place-items-center md:h-full gap-y-2 md:gap-y-4 max-w-3xl"
           ref={target}
         >
           {transitions(({ opacity, translateY }, item) => {

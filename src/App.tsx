@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import Landing from "./views/Landing";
 import ErrorHandler from "./three/ErrorHandler";
-import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
@@ -10,7 +10,17 @@ function App() {
         window.ResizeObserver = ResizeObserver;
       });
     }
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, []);
+
   return (
     <ErrorHandler fallback="Hubo un problema inesperado, por favor, notificame por correo: ernestorb_@outlook.com">
       <div
