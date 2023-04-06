@@ -5,6 +5,7 @@ import royalmind from "../images/royalmind.png";
 import skywars from "../images/skywars.png";
 import tablist from "../images/tablistmanager.png";
 import useposition from "../images/usePosition.png";
+import asteroids from "../images/asteroids.png";
 
 export function ProjectGrid() {
   return (
@@ -36,6 +37,12 @@ export function ProjectGrid() {
         API para manipular la tablist de jugadores en un servidor de SpigotMC.
         <ProjectLink href="https://www.spigotmc.org/resources/tablistmanager.107039/">
           <LanguageIcon lang="spigot" format="png"></LanguageIcon> Ir a SpigotMC
+        </ProjectLink>
+      </Project>
+      <Project images={[asteroids]} title="Asteroides">
+        Implementación del clásico juego "Asteroids".
+        <ProjectLink href="https://www.spigotmc.org/resources/tablistmanager.107039/">
+          <LanguageIcon lang="github"></LanguageIcon> Ir a GitHub
         </ProjectLink>
       </Project>
     </div>

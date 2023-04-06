@@ -1,7 +1,10 @@
-import { MouseEventHandler } from "react";
+import { PointerEventHandler } from "react";
 
 export const registerHoverEvent = () => {
-  const onMouseMove: MouseEventHandler<HTMLElement> = (e) => {
+  const onPointerMove: PointerEventHandler<HTMLElement> = (e) => {
+    if (e.pointerType !== "mouse") {
+      return;
+    }
     const { currentTarget } = e;
     const rect = currentTarget.getBoundingClientRect();
 
@@ -11,12 +14,12 @@ export const registerHoverEvent = () => {
     currentTarget.style.setProperty("--mouse-y", `${y}px`);
   };
 
-  const onMouseLeave: MouseEventHandler<HTMLElement> = (e) => {
+  const onPointerLeave: PointerEventHandler<HTMLElement> = (e) => {
     const { currentTarget } = e;
   };
 
   return {
-    onMouseMove,
-    onMouseLeave,
+    onPointerMove,
+    onPointerLeave,
   };
 };

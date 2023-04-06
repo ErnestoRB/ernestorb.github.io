@@ -1,16 +1,42 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import arrowRight from "../iconos/arrow-right.svg";
 
 export default function Slider({
   images,
   className = "",
   barClassName = "",
+  autoplay = false,
+  duration = 3000,
 }: {
   images: string[];
   className?: string;
   barClassName?: string;
+  autoplay?: boolean;
+  duration?: number;
 }) {
   const [page, setPage] = useState(0);
+  const intervalId = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    if ((!autoplay && images.length <= 1) || intervalId.current) {
+      return;
+    }
+
+    /// @ts-ignore
+    intervalId.current = setInterval(() => {
+      if (page == 0) {
+        setPage(images.length - 1);
+      } else if (page == images.length - 1) {
+        setPage(0);
+      } else {
+        setPage(page + 1);
+      }
+    }, duration);
+
+    return () => {
+      clearInterval(intervalId.current);
+    };
+  }, [autoplay, images, setPage, page]);
 
   return (
     <div
@@ -30,6 +56,7 @@ export default function Slider({
       >
         {images.map((url, i) => (
           <div
+            key={url}
             style={{
               width: "100%",
               height: "100%",
@@ -43,7 +70,7 @@ export default function Slider({
                 objectFit: "cover",
               }}
               src={url}
-              alt="img"
+              alt={`img ${i}`}
             ></img>
           </div>
         ))}
