@@ -66,6 +66,7 @@ function Project({
       <Slider
         images={images}
         className="rounded-l-sm w-full h-32 lg:h-48 flex-0 object-cover"
+        barClassName="bg-black dark:bg-rose-1 "
       ></Slider>
 
       <div className="flex-1 p-4 ">
