@@ -63,15 +63,15 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-white dark:bg-gray-600;
+  @apply bg-white;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-600 dark:bg-white;
+  @apply bg-gray-700;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-800 dark:bg-gray-300;
+  @apply bg-gray-800;
 }

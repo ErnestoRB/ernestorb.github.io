@@ -1,42 +1,72 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import arrowRight from "../iconos/arrow-right.svg";
+
+export interface SlideItem {
+  src: string;
+  objectFit?: "cover" | "contain" | "fill" | "scale-down";
+}
+
+export interface SliderProps {
+  images: SlideItem[];
+  loop?: boolean;
+  className?: string;
+  barClassName?: string;
+  transition?: string;
+  autoplay?: boolean;
+  duration?: number;
+  imagesBackground?: string;
+}
 
 export default function Slider({
   images,
   className = "",
   barClassName = "",
   autoplay = false,
-  duration = 3000,
-}: {
-  images: string[];
-  className?: string;
-  barClassName?: string;
-  autoplay?: boolean;
-  duration?: number;
-}) {
+  duration = 5000,
+  loop = true,
+  transition = "translate 1s",
+  imagesBackground = "white",
+}: SliderProps) {
   const [page, setPage] = useState(0);
   const intervalId = useRef<number | undefined>(undefined);
+  const wasUserLast = useRef<boolean>(false);
 
-  useEffect(() => {
-    if ((!autoplay && images.length <= 1) || intervalId.current) {
+  const increasePage = useCallback(() => {
+    if (!loop) {
+      setPage((page) => Math.max(0, page - 1));
       return;
     }
 
-    /// @ts-ignore
-    intervalId.current = setInterval(() => {
-      if (page == 0) {
-        setPage(images.length - 1);
-      } else if (page == images.length - 1) {
-        setPage(0);
-      } else {
-        setPage(page + 1);
-      }
-    }, duration);
+    setPage((page) => (page == images.length - 1 ? 0 : page + 1));
+  }, [images, loop, setPage]);
 
-    return () => {
-      clearInterval(intervalId.current);
-    };
-  }, [autoplay, images, setPage, page]);
+  const decreasePage = useCallback(() => {
+    if (!loop) {
+      setPage((page) => Math.min(images.length - 1, page + 1));
+      return;
+    }
+    setPage((page) => (page == 0 ? images.length - 1 : page - 1));
+  }, [images, loop, setPage]);
+
+  useEffect(() => {
+    if (autoplay && images.length > 1 && !intervalId.current) {
+      console.log("Creando temporizador");
+
+      /// @ts-ignore
+      intervalId.current = setInterval(() => {
+        if (wasUserLast.current) {
+          wasUserLast.current = false;
+          return;
+        }
+        increasePage();
+      }, duration);
+
+      return () => {
+        clearInterval(intervalId.current);
+        intervalId.current = undefined;
+      };
+    }
+  }, [autoplay, images, increasePage, duration]);
 
   return (
     <div
@@ -45,7 +75,7 @@ export default function Slider({
     >
       <div
         style={{
-          transition: "translate 1s",
+          transition,
           translate: `-${page}00%`,
           width: "100%",
           height: "100%",
@@ -54,10 +84,11 @@ export default function Slider({
           flexWrap: "wrap",
         }}
       >
-        {images.map((url, i) => (
+        {images.map((slide, i) => (
           <div
-            key={url}
+            key={slide.src}
             style={{
+              background: imagesBackground,
               width: "100%",
               height: "100%",
             }}
@@ -67,9 +98,9 @@ export default function Slider({
                 display: "block",
                 width: "100%",
                 height: "100%",
-                objectFit: "cover",
+                objectFit: slide.objectFit || "cover",
               }}
-              src={url}
+              src={slide.src}
               alt={`img ${i}`}
             ></img>
           </div>
@@ -105,7 +136,10 @@ export default function Slider({
               height: "30px",
               top: "50%",
             }}
-            onClick={() => setPage((state) => Math.max(0, state - 1))}
+            onClick={() => {
+              decreasePage();
+              wasUserLast.current = true;
+            }}
           >
             <img
               src={arrowRight}
@@ -121,9 +155,10 @@ export default function Slider({
               width: "30px",
               right: 0,
             }}
-            onClick={() =>
-              setPage((state) => Math.min(images.length - 1, state + 1))
-            }
+            onClick={() => {
+              increasePage();
+              wasUserLast.current = true;
+            }}
           >
             <img src={arrowRight} alt="arrow to go right" />
           </button>
