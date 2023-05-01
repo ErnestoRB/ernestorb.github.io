@@ -25,7 +25,7 @@ const Technology = forwardRef<HTMLDivElement, TechnologyProps>(
               </div>
             }
           >
-            <div className="bg-white bg-opacity-60 p-2 rounded-md touch-none w-64 select-none">
+            <div className="bg-white bg-opacity-90 p-2 rounded-md touch-none w-64 select-none">
               {description}
             </div>
           </Openable>

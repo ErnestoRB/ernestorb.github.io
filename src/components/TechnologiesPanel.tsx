@@ -10,22 +10,23 @@ type TechItem = {
 const Techs: TechItem[] = [
   {
     name: "React",
-    description: "¡Esta app está creada con React!",
+    description:
+      "¡Esta app está creada con React! Se usar Next.js como una solución Fullstack",
   },
   {
     name: "C",
     description:
-      "He creado videojuegos, también he programado microcontroladores.",
+      "He creado videojuegos y también he programado microcontroladores.",
   },
   {
     name: "Java",
     description:
-      "He creado gráficos, videojuegos, aplicaciones de escritorio, plugins para SpigotMC, entre otoros.",
+      "He creado gráficos, videojuegos, aplicaciones de escritorio, plugins para SpigotMC, entre otros.",
   },
   {
     name: "Javascript",
     description:
-      "Lo sé usar tanto en navegadores y otros entornos de ejecución.",
+      "Lo sé usar tanto en navegadores y otros entornos de ejecución (Node.js, Deno).",
   },
   {
     name: "Python",
@@ -63,8 +64,8 @@ const Techs: TechItem[] = [
     name: "Go",
     description: (
       <p>
-        Usé la librería Go Graphics para generar las representaciones de algunos
-        códigos binarios.
+        Es importante conocer lenguajes de última generación. Usé la librería Go
+        Graphics para generar las representaciones de algunos códigos binarios.
       </p>
     ),
   },
@@ -72,8 +73,8 @@ const Techs: TechItem[] = [
     name: "Docker",
     description: (
       <p>
-        Los microservicios son muy importantes. Como desarrollador, agiliza mi
-        tiempo al desarrollar sistemas.
+        Los microservicios son muy importantes estos días. Como desarrollador,
+        agiliza mi tiempo al desarrollar sistemas.
       </p>
     ),
   },
@@ -81,8 +82,8 @@ const Techs: TechItem[] = [
     name: "Angular",
     description: (
       <p>
-        Es un ecosistema robusto y completo para desarrollar aplicaciones Web de
-        manera ágil.
+        Me encanta Angular, es una manera práctica de desarollar aplicaciones
+        Web con la aplicación de principios SOLID
       </p>
     ),
   },
