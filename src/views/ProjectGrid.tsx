@@ -8,7 +8,7 @@ import tablistExample from "../images/tablist.png";
 import skywarsExample1 from "../images/mc.png";
 
 import useposition from "../images/usePosition.png";
-import asteroids from "../images/asteroids.png";
+import asteroids from "../images/asteroides.png";
 
 export function ProjectGrid() {
   return (
