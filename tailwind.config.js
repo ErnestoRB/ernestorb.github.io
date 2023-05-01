@@ -3,26 +3,46 @@ const colors = require("tailwindcss/colors");
 // https://maketintsandshades.com/#CD4197,4DB6EA,d41515
 
 module.exports = {
-  extend: {
-    maxWidth: {
-      80: "80%",
-    },
-  },
+  darkMode: "class",
+
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    extend: {
+      maxWidth: {
+        80: "80%",
+      },
+      backgroundImage: {
+        cursor:
+          "radial-gradient(100px circle at var(--mouse-x) var(--mouse-y),rgb(82, 82, 82) 0%,transparent 100%);",
+      },
+    },
+    fontFamily: {
+      staatliches: "'Staatliches'",
+      bebas: "'Bebas'",
+      quicksand: "'Quicksand'",
+    },
+    keyframes: {
+      glow: {
+        from: {
+          transform: "scale(100%) rotate(3deg)",
+        },
+        to: {
+          transform: "scale(110%) rotate(2deg)",
+        },
+      },
+    },
+    animation: {
+      glow: "glow 3s linear infinite alternate-reverse",
+    },
+
     colors: {
       white: "#FFF",
-      black: "#000",
-      rose: {
-        100: "#e6a0cb",
-        200: "#e18dc1",
-        300: "#dc7ab6",
-        400: "#d767ac",
-        500: "#d254a1",
-        600: "#cd4197",
-        700: "#b93b88",
-        800: "#a43479",
+      blanco: {
+        100: "#e8e8e8",
+        200: "#fff8f7",
+        300: "#f1efef",
       },
+      black: "#000",
       blue: {
         800: "#3e92bb",
         700: "#45a4d3",
@@ -53,7 +73,22 @@ module.exports = {
         200: "#d41515",
         100: "#d82c2c",
       },
-      green: colors.green,
+      rose: {
+        1: "#e73677",
+        2: "#e72f72",
+        3: "#db1a61",
+        4: "#d40f57",
+      },
+      purple: {
+        1: "#9226ff",
+        2: "#850aaf",
+        3: "#7000e0",
+      },
+      green: {
+        1: "#2bcaad",
+        2: "#26b399",
+        3: "#24a890",
+      },
     },
   },
   plugins: [],

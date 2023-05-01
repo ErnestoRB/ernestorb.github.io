@@ -10,35 +10,36 @@ type TechItem = {
 const Techs: TechItem[] = [
   {
     name: "React",
-    description: "Esta app está creada con React",
+    description: "¡Esta app está creada con React!",
   },
   {
     name: "C",
     description:
-      "He creado videojuegos con este lenguaje. Usé la librería Allegro para conseguirlo.",
+      "He creado videojuegos, también he programado microcontroladores.",
   },
   {
     name: "Java",
     description:
-      "Fue mi primer lenguaje de programación. He creado gráficos, videojuegos, aplicaciones de escritorio, plugins para SpigotMC, etc.",
+      "He creado gráficos, videojuegos, aplicaciones de escritorio, plugins para SpigotMC, entre otoros.",
   },
   {
     name: "Javascript",
     description:
-      "Por lejos mi lenguaje favorito. Tanto en navegadores y entornos de ejecución fuera de ellos.",
+      "Lo sé usar tanto en navegadores y otros entornos de ejecución.",
   },
   {
     name: "Python",
-    description:
-      "Para ser sincero, sólo he desarrollado algunos scripts en este lenguaje.",
+    description: "Sólo he realizado unos cuantos scripts con éste lenguaje.",
   },
   {
     name: "Ubuntu",
     description: (
       <span>
-        He trabajado con Ubuntu por una cantidad considerable de tiempo. Se
-        crear scripts en <LanguageIcon lang="shell"></LanguageIcon> y además se
-        manipular herramientas UN*X
+        He trabajado con Ubuntu desde 2021. Se crear shell scripts
+        <span>
+          <LanguageIcon lang="shell"></LanguageIcon>
+        </span>
+        y además se manipular herramientas UN*X
       </span>
     ),
   },
@@ -48,10 +49,7 @@ const Techs: TechItem[] = [
       <span>
         He usado esta base de datos NoSQL para crear sistema de tickets y posts
         para{" "}
-        <a
-          href="https://mcmexi.co"
-          className="font-semibold text-red-100 hover:text-red-300"
-        >
+        <a href="https://mcmexi.co" className="font-semibold">
           Royalmind Network
         </a>
       </span>
@@ -59,26 +57,14 @@ const Techs: TechItem[] = [
   },
   {
     name: "Express",
-    description: (
-      <span>
-        Mi framework web favorito.
-        <a
-          href="https://mcmexi.co"
-          className="font-semibold hover:text-red-300"
-        >
-          Royalmind Network API
-        </a>{" "}
-        está hecha con Express.
-      </span>
-    ),
+    description: <span>Mi framework web favorito.</span>,
   },
   {
     name: "Go",
     description: (
       <p>
-        Mi curiosidad por Go me llevó a usarlo en un programa que desarrollé
-        junto con un amigo para un trabajo de la universidad. Usamos Go Graphics
-        para graficar códigos binarios
+        Usé la librería Go Graphics para generar las representaciones de algunos
+        códigos binarios.
       </p>
     ),
   },
@@ -86,8 +72,8 @@ const Techs: TechItem[] = [
     name: "Docker",
     description: (
       <p>
-        Estoy consciente de lo importante que son los microservicios. Agiliza mi
-        tiempo al desarrollar soluciones.
+        Los microservicios son muy importantes. Como desarrollador, agiliza mi
+        tiempo al desarrollar sistemas.
       </p>
     ),
   },
@@ -95,8 +81,7 @@ const Techs: TechItem[] = [
     name: "Angular",
     description: (
       <p>
-        Pionero en desarrollo de aplicaciones renderizadas en el cliente. Es un
-        ecosistema robusto y completo para desarrollar aplicaciones Web de
+        Es un ecosistema robusto y completo para desarrollar aplicaciones Web de
         manera ágil.
       </p>
     ),

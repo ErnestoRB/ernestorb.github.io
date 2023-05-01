@@ -12,6 +12,16 @@
   src: url("fonts/ComingSoon.ttf");
 }
 
+@font-face {
+  font-family: "Staatliches";
+  src: url("fonts/Staatliches.ttf");
+}
+
+@font-face {
+  font-family: "Bebas";
+  src: url("fonts/Bebas.ttf");
+}
+
 * {
   font-family: "Quicksand";
 }
@@ -24,4 +34,44 @@
 .no-scroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.gradient-hover {
+  @apply dark:from-black dark:to-black bg-gradient-to-tr from-blue-300 to-purple-1;
+  position: relative;
+}
+
+.gradient-hover:hover::before {
+  opacity: 1;
+}
+
+.gradient-hover::before {
+  transition: all 0.3s;
+  opacity: 0;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  @apply dark:bg-cursor;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-700;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-800;
 }

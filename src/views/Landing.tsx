@@ -1,93 +1,88 @@
-import Link from "../components/Link";
-import mailIcon from "../iconos/mail.svg";
-import arrowDownIcon from "../iconos/arrow-down.svg";
-import { animated as a, useSpring } from "@react-spring/web";
-import { useDrag } from "@use-gesture/react";
-import SocialButtons from "../SocialButtons";
-
-const config = {
-  mass: 1,
-  friction: 5,
-  tension: 30,
-};
+import { Description } from "../components/Description";
+import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { ProjectGrid } from "./ProjectGrid";
+import Tech from "./Tenchologies";
+import NavBar from "../components/NavBar";
+import AboutMe from "./AboutMe";
+import { useMemo, useRef } from "react";
+import { registerHoverEvent } from "../utils/hover";
 
 const Landing = () => {
-  const [{ x }, api] = useSpring(() => ({
-    x: 0,
-  }));
-
-  const { y } = useSpring({
-    from: { y: 0 },
-    to: { y: 20 },
-    loop: { reverse: true },
-    config,
-  });
-
-  const { background } = useSpring({
-    from: {
-      background: "#5fbdec",
-    },
-    to: {
-      background: "#94d3f2",
-    },
-    loop: {
-      reverse: true,
-    },
-    config,
-  });
-
-  const bind = useDrag(
-    ({ offset }) => {
-      api.start({ x: offset[0] });
-    },
-    {
-      axis: "x",
-      bounds: { left: -3, right: 10 },
-    }
-  );
+  const pRef = useRef<IParallax>(null);
+  const bind = useMemo(registerHoverEvent, []);
 
   return (
-    <div
-      className="relative bg-transparent overflow-x-clip text-black touch-pan-y"
-      {...bind()}
-    >
-      <a.div
-        style={{
-          background,
-        }}
-        className="absolute top-0 left-0 bg-fixed w-full h-full"
-      ></a.div>
-      <div className="flex flex-wrap w-full h-screen justify-center content-center gap-y-2 relative z-10">
-        <div className="relative">
-          <a.h1
-            style={{ x: x.to((x) => x - 5) }}
-            className="absolute -z-10 text-center text-gray-400 block w-full font-['Coming_Soon'] font-bold text-4xl md:text-6xl lg:text-7xl xl:text-8xl select-none"
-          >
-            Ernesto Ramírez
-          </a.h1>
-          <h1 className="top-0 left-0 text-center block w-full font-['Coming_Soon'] font-bold text-4xl md:text-6xl lg:text-7xl xl:text-8xl select-none">
-            Ernesto Ramírez
-          </h1>
-        </div>
-        <div className="flex flex-wrap w-full justify-center items-center gap-x-2">
-          <SocialButtons></SocialButtons>
-        </div>
-        <div className="flex w-full justify-center content-center">
-          <Link
-            href={"mailto:ernestorb_@outlook.com"}
-            className="bg-white text-black shadow-lg"
-          >
-            <img src={mailIcon} alt="Email" className="inline w-8 h-8" />
-            <span>Mándame un correo</span>
-          </Link>
-        </div>
-        <a.a
-          style={{ y }}
-          href="#me"
-          className="absolute bottom-12 flex items-center justify-center border rounded-full border-white bg-white w-8 h-8 shadow-lg"
-        >
-          <img src={arrowDownIcon} alt="arrow" className="inline w-4 h-4" />
-        </a.a>
+    <div className="relative bg-transparent overflow-x-clip text-black flex flex-col h-full w-full">
+      <NavBar></NavBar>
+      <div className="gradient-hover flex-1 relative" {...bind}>
+        <Parallax pages={4} horizontal config={{}} ref={pRef}>
+          <div className="w-full h-full">
+            <ParallaxLayer
+              key="welcome"
+              className="relative w-full h-full flex justify-center items-center font-bebas text-6xl text-white dark:text-white "
+              horizontal
+              speed={0.5}
+              offset={0}
+            >
+              <Description />
+            </ParallaxLayer>
+            <ParallaxLayer
+              key="badges"
+              className="relative -z-10 w-full h-full flex justify-center items-center text-white"
+              horizontal
+              speed={1}
+              offset={0.25}
+            >
+              <div>
+                <div className="absolute skew-x-12 h-1/2 top-0 w-52 bg-rose-1 dark:bg-purple-1  "></div>
+                <div className="absolute -skew-x-12 h-1/2 bottom-0 w-52 bg-rose-4 dark:bg-purple-3"></div>
+              </div>
+            </ParallaxLayer>
+            <ParallaxLayer
+              key="about"
+              className="pt-28 w-full h-full text-white"
+              horizontal
+              speed={1}
+              offset={1}
+            >
+              <AboutMe />
+            </ParallaxLayer>
+            <ParallaxLayer
+              key="projects"
+              horizontal
+              offset={2}
+              speed={0.1}
+              className="relative w-full max-h-full z-10 flex flex-row bg-blanco-300 backdrop-blur-sm dark:bg-gray-500"
+            >
+              <div className="-skew-x-3 md:-skew-x-6 -translate-x-1/2 h-full bottom-0 w-16 md:w-36 lg:w-52 bg-purple-3 dark:bg-gradient-to-t from-rose-1 to-rose-4"></div>
+              <div className="flex-1 flex flex-col overflow-auto gap-y-2 pt-28 px-2">
+                <h1 className="text-5xl lg:text-8xl  text-center font-staatliches text-black dark:text-white">
+                  Mis proyectos
+                </h1>
+                <ProjectGrid />
+              </div>
+              <div className="skew-x-3 md:skew-x-6 translate-x-1/2 h-full bottom-0 w-16 md:w-36 lg:w-52 bg-purple-3 dark:bg-gradient-to-t from-rose-4 to-rose-1"></div>
+            </ParallaxLayer>
+            <ParallaxLayer
+              key="gradient"
+              className="bg-transparent dark:bg-gradient-to-tr dark:from-blue-800 dark:to-purple-1 to-blue-300 from-purple-1 -z-20"
+              style={{
+                width: "120%",
+              }}
+              offset={2.9}
+              speed={0}
+            ></ParallaxLayer>
+            <ParallaxLayer
+              key="tech"
+              horizontal
+              offset={3}
+              speed={0.1}
+              className="pt-28 w-full h-full mx-4"
+            >
+              <Tech />
+            </ParallaxLayer>
+          </div>
+        </Parallax>
       </div>
     </div>
   );
