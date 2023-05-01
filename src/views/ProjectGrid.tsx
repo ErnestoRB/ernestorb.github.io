@@ -1,6 +1,6 @@
 import LanguageIcon from "../components/languages/LanguageIcon";
 import ProjectLink from "../components/links/ProjectLink";
-import Slider, { SlideItem } from "../components/Slider";
+import { Slider, SlideItem } from "@ernestorb/components";
 import royalmind from "../images/royalmind.png";
 import skywars from "../images/skywars.png";
 import tablist from "../images/tablistmanager.png";
